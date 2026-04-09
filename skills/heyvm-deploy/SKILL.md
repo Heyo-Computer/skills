@@ -1,5 +1,5 @@
 ---
-name: deploy
+name: heyvm-deploy
 description: Deploy apps to Heyo cloud sandboxes — archive code, deploy to production, bind ports, set up custom domains, and manage deployed sandboxes. Use when the user wants to deploy, update, or manage a running app.
 argument-hint: "[action] [args...]"
 allowed-tools: Bash, Read, Grep

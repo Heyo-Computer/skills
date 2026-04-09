@@ -1,6 +1,6 @@
 ---
-name: heyvm
-description: Interact with the heyvm CLI to manage sandboxes — create, start, stop, restart, list, exec commands, and more. Use when the user wants to manage sandboxes, run code in isolated environments, or work with micro-VMs.
+name: heyvm-sandbox
+description: Create, start, stop, restart, list, and exec commands in heyvm sandboxes. Use when the user wants to manage sandbox lifecycle, run commands in isolated environments, or configure sandbox settings like mounts, ports, and backend types.
 argument-hint: "[subcommand] [args...]"
 allowed-tools: Bash, Read, Grep
 ---
@@ -147,7 +147,7 @@ These commands work for both local and cloud-deployed sandboxes. The CLI resolve
 --mount <HOST:SANDBOX>     Mount path (repeatable)
 --ttl-seconds <SECS>       Time-to-live
 --start-command <CMD>      Custom start command
---backend-type <TYPE>      msb | wasix | wasip2 | docker | apple_vf | sandbox_exec | bubblewrap | libvirt | firecracker
+--backend-type <TYPE>      msb | wasix | wasip2 | docker | apple_container | apple_virt | sandbox_exec | bubblewrap | libvirt | firecracker
 --env <KEY=VALUE>          Environment variable (repeatable)
 --setup-hook <CMD>         Shell command to run after creation or mount replacement (repeatable)
 ```
@@ -197,7 +197,8 @@ These commands work for both local and cloud-deployed sandboxes. The CLI resolve
 - **wasix** — WASIX WebAssembly
 - **wasip2** — WASI Preview 2
 - **docker** — Docker container
-- **apple_vf** — Apple Virtualization Framework (macOS only)
+- **apple_container** — Apple Container (macOS only, uses Apple's `container` CLI)
+- **apple_virt** — Apple Virtualization native VM (macOS only, uses Virtualization.framework directly)
 - **sandbox_exec** — macOS sandbox (macOS only)
 - **bubblewrap** — Linux namespaces (Linux only)
 - **libvirt** — QEMU/KVM via libvirt (Linux only)
